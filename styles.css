@@ -150,7 +150,6 @@ the Grid
 .squares {
   box-sizing: border-box;
   float: left;
-  border: 1px solid black;
 }
 
 .squares:hover {
@@ -207,13 +206,8 @@ footer .knob:nth-child(2n) {
   justify-content: center;
 }
 
-.grid-form {
-  text-align: center;
-  margin-top: 1.5em;
-}
-
-.grid-form h3 {
-  display: inline-block;
+#inner-knob-left {
+  box-shadow: inset -1px -1px 3px;
 }
 
 /*
@@ -234,15 +228,10 @@ button:focus {
   outline: 0;
 }
 
-/*
-==============================
-Form
-==============================
-*/
-
-input {
-  border-radius: 8px;
-  margin-left: 1em;
-  padding: 2px 4px;
-  width: 4em;
+#color-button {
+  margin-top: 2.5em;
+  min-width: 156px;
+  border-radius: 10px;
+  padding: 8px 14px;
+  box-shadow: 2px 3px 3px;
 }
