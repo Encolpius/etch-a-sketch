@@ -102,6 +102,7 @@ h3 {
 }
 
 h4 {
+  margin-left: .5em;
   font-family: 'Eagle Lake', cursive;
   font-size: 22px;
   color: #FFEEAD;
@@ -128,7 +129,7 @@ Game Board
   box-shadow: 6px 7px 7px;
   }
 
-.game-screen {
+#game-screen {
   height: 460px;
   width: 630px;
   margin: 0 auto;
@@ -136,6 +137,7 @@ Game Board
   border-radius: 23px;
   box-shadow: inset 1px 1px 12px,
               inset -1px -1px 12px;
+  overflow: hidden;
 }
 
 
@@ -145,14 +147,14 @@ the Grid
 ==============================
 */
 
-.grid {
-  display: grid;
-  grid-template-columns: 10;
-  grid-template-rows: 10;
+.squares {
+  box-sizing: border-box;
+  float: left;
+  border: 1px solid black;
 }
 
-.grid div {
-  border: 1px solid black;
+.squares:hover {
+  cursor: pointer;
 }
 
 /*
@@ -163,7 +165,6 @@ Bottom Row
 
 footer {
   position: relative;
-  margin-top: -18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -171,6 +172,7 @@ footer {
 }
 
 .knob {
+  margin-top: -18px;
   display: inline-block;
   box-sizing: border-box;
   background-color: #E3EAED;
@@ -205,10 +207,6 @@ footer .knob:nth-child(2n) {
   justify-content: center;
 }
 
-#clear {
-  box-shadow: inset -1px -1px 3px;
-}
-
 .grid-form {
   text-align: center;
   margin-top: 1.5em;
@@ -224,11 +222,16 @@ Buttons
 ==============================
 */
 
-a {
-  padding: 25px;
-  text-decoration: none;
-  color: black;
+button {
+  background-color: #E3EAED;
+  font-family: 'Eagle Lake', cursive;
+  border: none;
   cursor: pointer;
+  padding: 8px;
+}
+
+button:focus {
+  outline: 0;
 }
 
 /*
@@ -238,7 +241,7 @@ Form
 */
 
 input {
-  border-radius: 10px;
+  border-radius: 8px;
   margin-left: 1em;
   padding: 2px 4px;
   width: 4em;
