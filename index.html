@@ -14,52 +14,68 @@
 
     <div class="box">
 
-      <!--Top Row-->
+      <!--Top Row -->
 
       <header>
         <h4>Magic</h4><h1>Etch A Sketch</h1><h4>Screen</h4>
       </header>
 
 
-      <!--Screen And Grid-->
+      <!--Screen And Grid -->
 
       <div class="game-screen">
 
         <div id="grid">
+          <div></div>
         </div>
 
       </div>
 
 
-      <!--Bottom Row-->
+      <!--Left Knob-->
 
       <footer>
 
-        <a href="#"><div class="knob">
+        <div class="knob">
 
-          <div class="innerknob">
+          <div id="clear" class="innerknob">
 
-            <h5>Clear</h5>
-
-          </div></a>
-
-        </div>
-
-        <a href="#"><div class="knob">
-
-          <div class="innerknob">
-
-            <h5>Color</h4>
+            <a><h5>Color</h5></a>
 
           </div>
 
         </div>
 
+        <!-- Grid Form -->
+
+        <div class="grid-form">
+          <h3>Number Of Squares:</h3>
+          <input id="grid-form" type="number" name="quantity" min="1" max="50"></input>
+        </div>
+
+
+        <!-- Right Knob -->
+
+        <div class="knob">
+
+          <div id="color" class="innerknob">
+
+            <a><h5>Clear</h4></a>
+
+          </div>
+
+        </div>
+
+
+
       </footer>
+
+
 
     </div>
 
   </section>
+
 
 
   <script src="jquery.js"></script>

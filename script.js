@@ -1,6 +1,14 @@
 $( document ).ready();
 
+let grid = document.getElementById('grid');
 
-function numberOfSquares() {
-  let number = prompt('What\'s your pleasure');
-}
+/* Getting amount of squares */
+function getSquares() {
+  $('#grid-form').keyup(function(e) {
+    if (e.keyCode == 13) {
+      console.log('you pressed enter');
+    }
+  })
+};
+
+getSquares();

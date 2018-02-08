@@ -96,6 +96,11 @@ h1 {
                -.4px -.4px #000;
 }
 
+h3 {
+  font-family: 'Eagle Lake', cursive;
+  color: #FFEEAD;
+}
+
 h4 {
   font-family: 'Eagle Lake', cursive;
   font-size: 22px;
@@ -116,11 +121,11 @@ Game Board
 */
 
 .box {
-    width: 880px;
-    height: 680px;
-    background: linear-gradient(to bottom, #F93333, #d60e26);
-    border-radius: 12px;
-    box-shadow: 6px 7px 7px;
+  width: 880px;
+  height: 680px;
+  background: linear-gradient(to bottom, #F93333, #B00013);
+  border-radius: 12px;
+  box-shadow: 6px 7px 7px;
   }
 
 .game-screen {
@@ -133,6 +138,23 @@ Game Board
               inset -1px -1px 12px;
 }
 
+
+/*
+==============================
+the Grid
+==============================
+*/
+
+.grid {
+  display: grid;
+  grid-template-columns: 10;
+  grid-template-rows: 10;
+}
+
+.grid div {
+  border: 1px solid black;
+}
+
 /*
 ==============================
 Bottom Row
@@ -142,12 +164,16 @@ Bottom Row
 footer {
   position: relative;
   margin-top: -18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .knob {
   display: inline-block;
   box-sizing: border-box;
-  background-color: white;
+  background-color: #E3EAED;
   height: 110px;
   width: 110px;
   border-radius: 50%;
@@ -158,7 +184,6 @@ footer {
 
 footer .knob:nth-child(1n) {
   box-shadow: 3px 2px 4px;
-
 }
 
 footer .knob:nth-child(2n) {
@@ -172,11 +197,25 @@ footer .knob:nth-child(2n) {
 .innerknob {
   width: 100px;
   height: 100px;
-  border: 1px solid grey;
+  border: 1px solid #8f9091;
   border-radius: 50%;
+  box-shadow: inset 1px -1px 3px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#clear {
+  box-shadow: inset -1px -1px 3px;
+}
+
+.grid-form {
+  text-align: center;
+  margin-top: 1.5em;
+}
+
+.grid-form h3 {
+  display: inline-block;
 }
 
 /*
@@ -186,6 +225,21 @@ Buttons
 */
 
 a {
+  padding: 25px;
   text-decoration: none;
   color: black;
+  cursor: pointer;
+}
+
+/*
+==============================
+Form
+==============================
+*/
+
+input {
+  border-radius: 10px;
+  margin-left: 1em;
+  padding: 2px 4px;
+  width: 4em;
 }
