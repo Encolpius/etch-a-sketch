@@ -362,5 +362,5 @@ button:focus {
   animation-iteration-count: .2; }
 
   .black {
-    background-color: black;
+    background-color: #999;
   }

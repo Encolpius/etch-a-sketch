@@ -8,8 +8,9 @@ $( document ).ready(function() {
 let gameScreen = document.getElementById('game-screen');
 let clear = document.getElementById('clear');
 let colorButton = document.getElementById('color-button');
-var checkBackground = "black";
-var squareTotal;
+var checkBackground = "";
+var squareTotal = 30;
+
 
 /* Getting amount of squares */
 function start() {
@@ -18,7 +19,7 @@ function start() {
   for (var i = 0; i < (30*30); i++) {
     $("<div class='squares' style='width:" + s + "%; height:" + s + "%'></div>").appendTo(gameScreen);
   }
-  current();
+  black();
   getSquares();
 }
 
@@ -64,21 +65,36 @@ function computeSquares() {
 
 /* Checking For The Current Color */
 function current() {
-  if (checkBackground == 'black') {
+  if (checkBackground === 'black') {
     return black();
-  } else if (checkBackground == 'colored') {
+  } else if (checkBackground === 'colored') {
     return colors();
   }
 }
 
 /* Backgrounds */
 function black() {
-  $('.squares').hover(function() {
-    $(this).addClass('black');
-  })
-}
+  darken = true;
+  $('.squares').mouseenter(function() {
+    $(this).addClass('black')
+    if (darken == true) {
+    let currentColor = $(this).css('background-color');
+    currentColor = currentColor.substring(currentColor.indexOf('(') +
+             1, currentColor.lastIndexOf(')')).split(",");
+    redValue = currentColor[0];
+    greenValue = currentColor[1];
+    blueValue = currentColor[2];
+    if (redValue >= 10)  redValue -= 10;
+    if (greenValue >= 10)  greenValue -= 10;
+    if (blueValue >= 10)  blueValue -= 10;
+    wantedColor = "rgb(" + redValue + "," + greenValue + "," + blueValue + ")";
+    $(this).css('background-color', wantedColor);
+    };
+  });
+};
 
 function colors() {
+  darken = false;
   $('.squares').mouseenter(function() {
     $(this).css('background-color', random_bg_color());
   })
@@ -96,11 +112,15 @@ function change() {
     if (checkBackground === 'black') {
       checkBackground = 'colored';
       colorButton.textContent = "Back To Black!";
-      colors();
+      $('.squares').remove();
+      computeSquares();
+      current();
     } else if (checkBackground === 'colored') {
       checkBackground = 'black';
       colorButton.textContent = "Change To Color!";
-      black();
+      $('.squares').remove();
+      computeSquares();
+      current();
     }
   })
 }
