@@ -9,7 +9,7 @@ let gameScreen = document.getElementById('game-screen');
 let clear = document.getElementById('clear');
 let colorButton = document.getElementById('color-button');
 var checkBackground = "black";
-var squareTotal = 30;
+var squareTotal;
 
 /* Getting amount of squares */
 function start() {
@@ -27,20 +27,27 @@ function start() {
 function getSquares() {
   $('#grid-button').click(function(e) {
       squareTotal = prompt("How many squares would you like?")
+      validate();
       $('div').remove('.squares');
-      if (squareTotal > 50) {
-        alert('Please give a number of 50 or less!');
-      } else {
-        computeSquares();
-      }
+      computeSquares();
       current();
   })
+}
+
+function validate() {
+  while (squareTotal < 1 || squareTotal > 50 || squareTotal % 1 != 0) {
+    squareTotal = prompt('Please enter an integer between 1 and 50.')
+  }
 }
 
 /* Clearing Current Squares */
 function clearAll() {
   $(clear).on('click', function() {
     $('.squares').remove();
+    $('.box').addClass('shake-slow');
+    setTimeout(function() {
+      $('.box').removeClass('shake-slow');
+    }, 600);
     computeSquares();
     current();
   })
@@ -67,22 +74,19 @@ function current() {
 /* Backgrounds */
 function black() {
   $('.squares').hover(function() {
-    $(this).css('background-color', 'black');
+    $(this).addClass('black');
   })
 }
 
 function colors() {
-  $('.squares').hover(function() {
+  $('.squares').mouseenter(function() {
     $(this).css('background-color', random_bg_color());
   })
 }
 
 /* Getting The Random Color */
 function random_bg_color() {
-    var x = Math.floor(Math.random() * 256);
-    var y = Math.floor(Math.random() * 256);
-    var z = Math.floor(Math.random() * 256);
-    var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+    bgColor = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6)
     return bgColor;
 }
 
